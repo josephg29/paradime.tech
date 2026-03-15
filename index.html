@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>paradime.technologies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <style>
+    @font-face {
+      font-family: 'Monocraft';
+      src: url('fonts/Monocraft.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 13px;
+    }
+
+    body {
+      font-family: 'Monocraft', 'Courier New', monospace;
+      background: #fafafa;
+      color: #111;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      -webkit-font-smoothing: none;
+      -moz-osx-font-smoothing: unset;
+    }
+
+    /* ─── HEADER / NAV ─── */
+
+    header {
+      width: 100%;
+      border-bottom: 1px solid #111;
+      padding: 0.9rem 2rem;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      position: sticky;
+      top: 0;
+      background: #fafafa;
+      z-index: 100;
+    }
+
+    .brand {
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: lowercase;
+      font-weight: normal;
+      white-space: nowrap;
+    }
+
+    nav {
+      display: flex;
+      align-items: baseline;
+      gap: 0.25rem;
+      flex-wrap: wrap;
+      font-size: 0.7rem;
+      letter-spacing: 0.04em;
+    }
+
+    nav a {
+      color: #111;
+      text-decoration: none;
+      padding: 0.15rem 0.4rem;
+      transition: background 0.1s;
+      white-space: nowrap;
+    }
+
+    nav a:hover {
+      background: #111;
+      color: #fafafa;
+    }
+
+    nav a.active {
+      background: #111;
+      color: #fafafa;
+    }
+
+    .nav-separator {
+      color: #999;
+      user-select: none;
+    }
+
+    .nav-bracket {
+      color: #999;
+      user-select: none;
+      font-size: 0.7rem;
+    }
+
+    /* ─── MAIN ─── */
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 2rem;
+      position: relative;
+    }
+
+    .coming-soon {
+      text-align: center;
+    }
+
+    .coming-soon h1 {
+      font-size: clamp(1.4rem, 4vw, 2.8rem);
+      font-weight: normal;
+      letter-spacing: 0.12em;
+      text-transform: lowercase;
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+    }
+
+    .coming-soon .sub {
+      font-size: clamp(0.55rem, 1vw, 0.7rem);
+      letter-spacing: 0.2em;
+      color: #888;
+      text-transform: lowercase;
+    }
+
+    /* ─── FLOWER ORNAMENT ─── */
+
+    .flower-glyph {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin-bottom: 1.5rem;
+      opacity: 0.15;
+      line-height: 1;
+      user-select: none;
+    }
+
+    /* ─── SUBTLE GRID (brutalist touch) ─── */
+
+    .grid-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      background-image:
+        linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+
+    main, header, footer {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ─── FOOTER ─── */
+
+    footer {
+      border-top: 1px solid #ddd;
+      padding: 0.75rem 2rem;
+      font-size: 0.55rem;
+      color: #bbb;
+      letter-spacing: 0.1em;
+      text-align: right;
+      text-transform: lowercase;
+    }
+
+    /* ─── RESPONSIVE ─── */
+
+    @media (max-width: 640px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem 1.25rem;
+      }
+
+      nav {
+        font-size: 0.75rem;
+      }
+
+      main {
+        padding: 3rem 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="grid-bg"></div>
+
+  <header>
+    <a href="/" class="brand" style="text-decoration:none;color:#111;">paradime.technologies</a>
+    <nav>
+      <a href="/index.html" class="active">landing</a>
+      <span class="nav-separator">/</span>
+      <a href="/flowers">flowers</a>
+      <span class="nav-separator">/</span>
+      <a href="/contact">contact</a>
+      <span class="nav-separator">/</span>
+      <a href="/about">about</a>
+      <span class="nav-separator">&nbsp;</span>
+      <span class="nav-bracket">:[</span>
+      <a href="/forward"> look forward</a>
+      <span class="nav-bracket">]</span>
+    </nav>
+  </header>
+
+  <main>
+    <div class="coming-soon">
+      <div class="flower-glyph">✾</div>
+      <h1>flowers coming soon</h1>
+      <p class="sub">— paradime.tech —</p>
+    </div>
+  </main>
+
+  <footer>
+    paradime.technologies — 2026
+  </footer>
+
+</body>
+</html>

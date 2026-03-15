@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flowers — paradime.technologies</title>
+  <style>
+    @font-face {
+      font-family: 'Monocraft';
+      src: url('../fonts/Monocraft.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 13px;
+    }
+
+    body {
+      font-family: 'Monocraft', 'Courier New', monospace;
+      background: #fafafa;
+      color: #111;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      -webkit-font-smoothing: none;
+      -moz-osx-font-smoothing: unset;
+    }
+
+    /* ─── HEADER / NAV ─── */
+
+    header {
+      width: 100%;
+      border-bottom: 1px solid #111;
+      padding: 0.9rem 2rem;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      position: sticky;
+      top: 0;
+      background: #fafafa;
+      z-index: 100;
+    }
+
+    .brand {
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: lowercase;
+      font-weight: normal;
+      white-space: nowrap;
+      text-decoration: none;
+      color: #111;
+    }
+
+    nav {
+      display: flex;
+      align-items: baseline;
+      gap: 0.25rem;
+      flex-wrap: wrap;
+      font-size: 0.7rem;
+      letter-spacing: 0.04em;
+    }
+
+    nav a {
+      color: #111;
+      text-decoration: none;
+      padding: 0.15rem 0.4rem;
+      transition: background 0.1s;
+      white-space: nowrap;
+    }
+
+    nav a:hover {
+      background: #111;
+      color: #fafafa;
+    }
+
+    nav a.active {
+      background: #111;
+      color: #fafafa;
+    }
+
+    .nav-separator {
+      color: #999;
+      user-select: none;
+    }
+
+    .nav-bracket {
+      color: #999;
+      user-select: none;
+      font-size: 0.7rem;
+    }
+
+    /* ─── MAIN ─── */
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 2rem;
+      position: relative;
+    }
+
+    .content {
+      text-align: center;
+    }
+
+    .content h1 {
+      font-size: clamp(1.2rem, 3vw, 2rem);
+      font-weight: normal;
+      letter-spacing: 0.1em;
+      text-transform: lowercase;
+      line-height: 1.3;
+      margin-bottom: 2.5rem;
+    }
+
+    .quote {
+      font-size: clamp(0.55rem, 1vw, 0.7rem);
+      letter-spacing: 0.15em;
+      color: #999;
+      text-transform: lowercase;
+      font-style: normal;
+      line-height: 1.6;
+    }
+
+    .quote .attr {
+      display: block;
+      margin-top: 0.6rem;
+      color: #bbb;
+      letter-spacing: 0.2em;
+    }
+
+    /* ─── GRID ─── */
+
+    .grid-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      background-image:
+        linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+
+    main, header, footer {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ─── FOOTER ─── */
+
+    footer {
+      border-top: 1px solid #ddd;
+      padding: 0.75rem 2rem;
+      font-size: 0.55rem;
+      color: #bbb;
+      letter-spacing: 0.1em;
+      text-align: right;
+      text-transform: lowercase;
+    }
+
+    /* ─── RESPONSIVE ─── */
+
+    @media (max-width: 640px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.75rem 1.25rem;
+      }
+
+      nav {
+        font-size: 0.65rem;
+      }
+
+      main {
+        padding: 3rem 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="grid-bg"></div>
+
+  <header>
+    <a href="/" class="brand">paradime.technologies</a>
+    <nav>
+      <a href="/index.html">landing</a>
+      <span class="nav-separator">/</span>
+      <a href="/flowers" class="active">flowers</a>
+      <span class="nav-separator">/</span>
+      <a href="/contact">contact</a>
+      <span class="nav-separator">/</span>
+      <a href="/about">about</a>
+      <span class="nav-separator">&nbsp;</span>
+      <span class="nav-bracket">:[</span>
+      <a href="/forward"> look forward</a>
+      <span class="nav-bracket">]</span>
+    </nav>
+  </header>
+
+  <main>
+    <div class="content">
+      <h1>flowers coming soon, i promise</h1>
+      <blockquote class="quote">
+        "where flowers bloom, so does hope"
+        <span class="attr">— LBJ</span>
+      </blockquote>
+    </div>
+  </main>
+
+  <footer>
+    paradime.technologies — 2026
+  </footer>
+
+</body>
+</html>

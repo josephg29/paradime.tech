@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>about — paradime.technologies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'Monocraft';
+      src: url('../fonts/Monocraft.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 13px;
+    }
+
+    body {
+      font-family: 'Monocraft', 'Courier New', monospace;
+      background: #fafafa;
+      color: #111;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      -webkit-font-smoothing: none;
+      -moz-osx-font-smoothing: unset;
+    }
+
+    header {
+      width: 100%;
+      border-bottom: 1px solid #111;
+      padding: 0.9rem 2rem;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      position: sticky;
+      top: 0;
+      background: #fafafa;
+      z-index: 100;
+    }
+
+    .brand {
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: lowercase;
+      font-weight: normal;
+      white-space: nowrap;
+      text-decoration: none;
+      color: #111;
+    }
+
+    nav {
+      display: flex;
+      align-items: baseline;
+      gap: 0.25rem;
+      flex-wrap: wrap;
+      font-size: 0.7rem;
+      letter-spacing: 0.04em;
+    }
+
+    nav a {
+      color: #111;
+      text-decoration: none;
+      padding: 0.15rem 0.4rem;
+      transition: background 0.1s;
+      white-space: nowrap;
+    }
+
+    nav a:hover {
+      background: #111;
+      color: #fafafa;
+    }
+
+    nav a.active {
+      background: #111;
+      color: #fafafa;
+    }
+
+    .nav-separator {
+      color: #999;
+      user-select: none;
+    }
+
+    .nav-bracket {
+      color: #999;
+      user-select: none;
+      font-size: 0.7rem;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 2rem;
+      position: relative;
+    }
+
+    .about-text {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 0.85rem;
+      line-height: 1.9;
+      max-width: 620px;
+      color: #111;
+      letter-spacing: 0.01em;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      white-space: pre-wrap;
+    }
+
+    .grid-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      background-image:
+        linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+
+    main, header, footer {
+      position: relative;
+      z-index: 1;
+    }
+
+    footer {
+      border-top: 1px solid #ddd;
+      padding: 0.75rem 2rem;
+      font-size: 0.55rem;
+      color: #bbb;
+      letter-spacing: 0.1em;
+      text-align: right;
+      text-transform: lowercase;
+    }
+
+    @media (max-width: 640px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.75rem 1.25rem;
+      }
+
+      nav {
+        font-size: 0.65rem;
+      }
+
+      main {
+        padding: 3rem 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="grid-bg"></div>
+
+  <header>
+    <a href="/index.html" class="brand">paradime.technologies</a>
+    <nav>
+      <a href="/index.html">landing</a>
+      <span class="nav-separator">/</span>
+      <a href="/flowers">flowers</a>
+      <span class="nav-separator">/</span>
+      <a href="/contact">contact</a>
+      <span class="nav-separator">/</span>
+      <a href="/about" class="active">about</a>
+      <span class="nav-separator">&nbsp;</span>
+      <span class="nav-bracket">:[</span>
+      <a href="/forward"> look forward</a>
+      <span class="nav-bracket">]</span>
+    </nav>
+  </header>
+
+  <main>
+    <div class="about-text">From a young age i always loved building, whether it was cardboard pizza boxes or comic books i constantly strived for creation. Eventually, this transferred to the digital world as i began learning how to create my own software. paradime tech is not just an outlet of expression for my creativity, but a record of all of my projects and aspirations.
+
+A paradigm is the foundation framework society sets on our lives, the way your supposed to do everything. It's a limit of ingenuity and as a result of too much obedience to the paradigm, we all end up living the same regurgitated life. To spark innovation and change, we must choose to be different not for the sake of others praise, but for our own aspiration.
+
+The shift from paradigm to paradime comes from the meaning the word time carries, which obviously comes from Duck Tales, Scrooge McDuck's lucky dime is the first time he ever earned. While this portfolio of sorts doesn't carry my first project, i have hopes it becomes something to reflect on with the same pride McDuck did looking back at his first dime.
+
+Look forward,
+joseph</div>
+  </main>
+
+  <footer>
+    paradime.technologies — 2026
+  </footer>
+
+</body>
+</html>
