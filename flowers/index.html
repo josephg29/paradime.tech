@@ -112,6 +112,192 @@
       position: relative;
     }
 
+    /* ─── PROJECT BOX ─── */
+
+    .project-box {
+      border: 1px solid #111;
+      padding: 1rem 1.8rem;
+      margin-bottom: 3rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      transition: background 0.1s;
+      text-decoration: none;
+      color: #111;
+      display: inline-block;
+    }
+
+    .project-box:hover {
+      background: #111;
+      color: #fafafa;
+    }
+
+    /* ─── FOLDER OVERLAY ─── */
+
+    .folder-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #fafafa;
+      z-index: 200;
+      flex-direction: column;
+    }
+
+    .folder-overlay.open {
+      display: flex;
+    }
+
+    .folder-bar {
+      border-bottom: 1px solid #111;
+      padding: 0.7rem 1.5rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.06em;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .folder-bar .back {
+      cursor: pointer;
+      border: none;
+      background: none;
+      font-family: 'Monocraft', 'Courier New', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.06em;
+      color: #111;
+      padding: 0.15rem 0.4rem;
+      transition: background 0.1s;
+    }
+
+    .folder-bar .back:hover {
+      background: #111;
+      color: #fafafa;
+    }
+
+    .folder-path {
+      color: #999;
+    }
+
+    .folder-body {
+      flex: 1;
+      padding: 2rem 2.5rem;
+      overflow-y: auto;
+    }
+
+    .file-list {
+      list-style: none;
+    }
+
+    .file-list li {
+      font-size: 0.7rem;
+      letter-spacing: 0.06em;
+      padding: 0.4rem 0.6rem;
+      cursor: pointer;
+      transition: background 0.1s;
+      display: inline-block;
+    }
+
+    .file-list li:hover {
+      background: #111;
+      color: #fafafa;
+    }
+
+    .file-list li::before {
+      content: '└ ';
+      color: #ccc;
+    }
+
+    /* ─── FILE VIEWER ─── */
+
+    .file-viewer {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #fafafa;
+      z-index: 300;
+      flex-direction: column;
+    }
+
+    .file-viewer.open {
+      display: flex;
+    }
+
+    .file-viewer .folder-bar {
+      border-bottom: 1px solid #111;
+    }
+
+    .file-viewer-body {
+      flex: 1;
+      padding: 2rem 2.5rem;
+      overflow-y: auto;
+      font-size: 0.7rem;
+      line-height: 2;
+      letter-spacing: 0.02em;
+      max-width: 700px;
+      white-space: pre-wrap;
+      color: #333;
+    }
+
+    /* ─── WASTED OVERLAY ─── */
+
+    .wasted-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(150, 0, 0, 0.75);
+      z-index: 400;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .wasted-overlay.open {
+      display: flex;
+      animation: wasted-flash 0.4s ease-out;
+    }
+
+    @keyframes wasted-flash {
+      0% { background: rgba(255, 255, 255, 0.9); }
+      30% { background: rgba(150, 0, 0, 0.85); }
+      100% { background: rgba(150, 0, 0, 0.75); }
+    }
+
+    .wasted-text {
+      font-size: clamp(4rem, 15vw, 10rem);
+      font-weight: normal;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #ddd;
+      text-shadow: 0 0 40px rgba(0,0,0,0.5);
+      animation: wasted-in 0.6s ease-out;
+    }
+
+    @keyframes wasted-in {
+      0% { transform: scale(2); opacity: 0; }
+      60% { transform: scale(0.95); opacity: 1; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .wasted-sub {
+      margin-top: 2rem;
+      font-size: clamp(0.5rem, 1.2vw, 0.7rem);
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      line-height: 1.8;
+      max-width: 400px;
+    }
+
     .content {
       text-align: center;
     }
@@ -216,6 +402,9 @@
 
   <main>
     <div class="content">
+      <div class="project-box" onclick="document.getElementById('folder').classList.add('open')">views/ideas/dreams</div>
+      <div class="project-box" onclick="document.getElementById('wasted').classList.add('open')" style="margin-left:0.8rem;">Launchpad</div>
+      <a class="project-box" href="https://rllyu.netlify.app" target="_blank" style="margin-left:0.8rem;">RllyU</a>
       <h1>more flowers coming soon, i promise</h1>
       <blockquote class="quote">
         "where flowers bloom, so does hope"
@@ -223,6 +412,74 @@
       </blockquote>
     </div>
   </main>
+
+  <!-- FOLDER OVERLAY -->
+  <div class="folder-overlay" id="folder">
+    <div class="folder-bar">
+      <span class="folder-path">views/ideas/dreams/</span>
+      <button class="back" onclick="document.getElementById('folder').classList.remove('open')">x close</button>
+    </div>
+    <div class="folder-body">
+      <ul class="file-list">
+        <li onclick="document.getElementById('file-ai').classList.add('open')">view:AI</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- FILE VIEWER -->
+  <div class="file-viewer" id="file-ai">
+    <div class="folder-bar">
+      <span class="folder-path">views/ideas/dreams/view:AI</span>
+      <button class="back" onclick="document.getElementById('file-ai').classList.remove('open')">x close</button>
+    </div>
+    <div class="file-viewer-body">My views on artificial intelligence, specifically generative AI.
+
+
+AI specific data centers only amount to 0.6% of global carbon emissions from JUST electricity consumption.
+
+
+Some of this work, is fossil fuel efficiency, being used to slim down the carbon emissions of twelve major oil and gas companies. In the oil and gas climate initiative, upstream methane intensity fell 72% below 2018 levels, largely driven by AI powered monitoring.
+
+
+Again, this is not generative AI I'm talking about, and almost every large AI company has deep flaws such as inconsistencies and reluctance to share emissions reports, but AI still is making a massive dent in a MUCH larger issue.
+
+
+AI has not offset its losses by any means, and is no doubt harming the environment. The problem is, single humans using AI's like ChatGPT have very little impact. One standard ChatGPT prompt uses 0.34 watt hours of energy, resulting in less damage than leaving a light bulb on for a few seconds to the environment.
+
+
+The real issue is in corporate structural issues, how data centers are built, where they are located, and the government for not holding these companies accountable.
+
+
+Is using AI lazy? It definitely depends.
+On developing an understanding of a foreign not touched upon topic?
+No.
+Doing something you could do in five minutes?
+Yes.
+Doing something technical, non creative to do it better than you could, when the goal is not to learn but to succeed?
+No.
+
+
+In the software development world, when the programming language C came out, programmers called it lazy. Then python. Then C#. The movement is, the bar will always keep moving as its the fastest changing industry in the world. Keeping up with the best tools, while it may not always seem ethical, is the smartest thing someone can do to stay ahead.
+
+
+I believe AI should not be implemented into everything, and it needs to be used with intention. A goal of mine has been launching my own local AI model I've been working on since June, Acosta.
+
+
+"We are the first generation to feel the effect of climate change and the last generation that can do something about it." — Barack Obama
+
+
+What I will be doing is not boycotting AI, but instead choosing which AI to support while working towards a long term goal keeping environmental transparency and health in priority.
+
+
+Look forward,
+joseph</div>
+  </div>
+
+  <!-- WASTED OVERLAY -->
+  <div class="wasted-overlay" id="wasted" onclick="this.classList.remove('open')">
+    <div class="wasted-text">wasted</div>
+    <div class="wasted-sub">cant finish the project theres a bee by my computer. stay tuned.</div>
+  </div>
 
   <footer>
     paradime.technologies — 2026
