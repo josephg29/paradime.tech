@@ -244,58 +244,136 @@
       color: #333;
     }
 
-    /* ─── WASTED OVERLAY ─── */
+    /* ─── LAUNCHPAD OVERLAY ─── */
 
-    .wasted-overlay {
+    .launchpad-overlay {
       display: none;
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(150, 0, 0, 0.75);
+      background: #fafafa;
       z-index: 400;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
     }
 
-    .wasted-overlay.open {
+    .launchpad-overlay.open {
       display: flex;
-      animation: wasted-flash 0.4s ease-out;
     }
 
-    @keyframes wasted-flash {
-      0% { background: rgba(255, 255, 255, 0.9); }
-      30% { background: rgba(150, 0, 0, 0.85); }
-      100% { background: rgba(150, 0, 0, 0.75); }
+    .launchpad-body {
+      flex: 1;
+      padding: 2.5rem 2.5rem;
+      overflow-y: auto;
+      max-width: 640px;
+      margin: 0 auto;
+      width: 100%;
     }
 
-    .wasted-text {
-      font-size: clamp(4rem, 15vw, 10rem);
+    .launchpad-body h2 {
+      font-size: 1.4rem;
       font-weight: normal;
-      letter-spacing: 0.25em;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.4rem;
+    }
+
+    .launchpad-body .tagline {
+      font-size: 0.65rem;
+      color: #999;
+      letter-spacing: 0.1em;
+      margin-bottom: 2rem;
+    }
+
+    .launchpad-body p {
+      font-size: 0.7rem;
+      line-height: 1.9;
+      letter-spacing: 0.03em;
+      color: #333;
+      margin-bottom: 1.5rem;
+    }
+
+    .launchpad-body .section-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: #ddd;
-      text-shadow: 0 0 40px rgba(0,0,0,0.5);
-      animation: wasted-in 0.6s ease-out;
-    }
-
-    @keyframes wasted-in {
-      0% { transform: scale(2); opacity: 0; }
-      60% { transform: scale(0.95); opacity: 1; }
-      100% { transform: scale(1); opacity: 1; }
-    }
-
-    .wasted-sub {
+      color: #999;
+      margin-bottom: 0.6rem;
       margin-top: 2rem;
-      font-size: clamp(0.5rem, 1.2vw, 0.7rem);
-      letter-spacing: 0.12em;
-      color: rgba(255,255,255,0.6);
-      text-align: center;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 0.3rem;
+    }
+
+    .launchpad-body ul {
+      list-style: none;
+      margin-bottom: 1.5rem;
+    }
+
+    .launchpad-body ul li {
+      font-size: 0.68rem;
       line-height: 1.8;
-      max-width: 400px;
+      letter-spacing: 0.03em;
+      color: #333;
+      padding: 0.15rem 0;
+    }
+
+    .launchpad-body ul li::before {
+      content: '— ';
+      color: #ccc;
+    }
+
+    .launchpad-body pre {
+      background: #111;
+      color: #ddd;
+      padding: 1rem 1.2rem;
+      font-size: 0.65rem;
+      line-height: 1.8;
+      letter-spacing: 0.03em;
+      margin-bottom: 1.5rem;
+      overflow-x: auto;
+      position: relative;
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      background: none;
+      border: 1px solid #555;
+      color: #999;
+      font-family: 'Monocraft', 'Courier New', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.06em;
+      padding: 0.2rem 0.5rem;
+      cursor: pointer;
+      transition: all 0.1s;
+    }
+
+    .copy-btn:hover {
+      background: #333;
+      color: #fafafa;
+    }
+
+    .launchpad-body .mode-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.65rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .mode-table th, .mode-table td {
+      text-align: left;
+      padding: 0.4rem 0.8rem;
+      border-bottom: 1px solid #eee;
+      letter-spacing: 0.04em;
+    }
+
+    .mode-table th {
+      color: #999;
+      font-weight: normal;
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
     }
 
     .content {
@@ -403,7 +481,7 @@
   <main>
     <div class="content">
       <div class="project-box" onclick="document.getElementById('folder').classList.add('open')">views/ideas/dreams</div>
-      <div class="project-box" onclick="document.getElementById('wasted').classList.add('open')" style="margin-left:0.8rem;">Launchpad</div>
+      <div class="project-box" onclick="document.getElementById('launchpad').classList.add('open')" style="margin-left:0.8rem;">Launchpad v2</div>
       <a class="project-box" href="https://rllyu.netlify.app" target="_blank" style="margin-left:0.8rem;">RllyU</a>
       <h1>more flowers coming soon, i promise</h1>
       <blockquote class="quote">
@@ -475,10 +553,58 @@ Look forward,
 joseph</div>
   </div>
 
-  <!-- WASTED OVERLAY -->
-  <div class="wasted-overlay" id="wasted" onclick="this.classList.remove('open')">
-    <div class="wasted-text">wasted</div>
-    <div class="wasted-sub">cant finish the project theres a bee by my computer. stay tuned.</div>
+  <!-- LAUNCHPAD OVERLAY -->
+  <div class="launchpad-overlay" id="launchpad">
+    <div class="folder-bar">
+      <span class="folder-path">flowers/launchpad-v2</span>
+      <button class="back" onclick="document.getElementById('launchpad').classList.remove('open')">x close</button>
+    </div>
+    <div class="launchpad-body">
+      <h2>Launchpad v2</h2>
+      <div class="tagline">ship professional websites from a single prompt. powered by claude.</div>
+
+      <p>Describe your app and Launchpad generates a complete Next.js project — pages, components, database, and auth. Phase 1 creates a working MVP demo. Phase 2 upgrades to production with Clerk auth, Supabase DB, and Stripe payments.</p>
+
+      <div class="section-label">features</div>
+      <ul>
+        <li>one prompt, full website</li>
+        <li>smart prompt rewriting — vague ideas become detailed build specs</li>
+        <li>clarifying questions before building</li>
+        <li>quality gates — dependency audit, npm install, TypeScript checks, build verification</li>
+        <li>CLI + Web UI with live build output and embedded terminal</li>
+      </ul>
+
+      <div class="section-label">requirements</div>
+      <ul>
+        <li>Node.js 18+</li>
+        <li>Anthropic API key</li>
+      </ul>
+
+      <div class="section-label">install</div>
+      <pre><button class="copy-btn" onclick="navigator.clipboard.writeText('git clone https://github.com/WEENOXD/launchpad.git\ncd launchpad\nnpm run setup')">copy</button>git clone https://github.com/WEENOXD/launchpad.git
+cd launchpad
+npm run setup</pre>
+
+      <div class="section-label">configure</div>
+      <pre><button class="copy-btn" onclick="navigator.clipboard.writeText('export ANTHROPIC_API_KEY=sk-ant-...')">copy</button>export ANTHROPIC_API_KEY=sk-ant-...</pre>
+
+      <div class="section-label">usage</div>
+      <pre><button class="copy-btn" onclick="navigator.clipboard.writeText('npm run ui')">copy</button># web ui — opens at http://localhost:8888
+npm run ui</pre>
+
+      <pre><button class="copy-btn" onclick="navigator.clipboard.writeText('npm start \"A landing page for an AI app called Clarity that summarizes Slack threads\"')">copy</button># cli
+npm start "A landing page for an AI app called Clarity that summarizes Slack threads"</pre>
+
+      <pre><button class="copy-btn" onclick="navigator.clipboard.writeText('npm start \"Portfolio for Maya Chen\" -- --out ./my-project --mode mvp')">copy</button># with options
+npm start "Portfolio for Maya Chen" -- --out ./my-project --mode mvp</pre>
+
+      <div class="section-label">modes</div>
+      <table class="mode-table">
+        <tr><th>mode</th><th>what you get</th></tr>
+        <tr><td>full</td><td>complete build — MVP demo + production upgrade path</td></tr>
+        <tr><td>mvp</td><td>quick demo only — mock auth, SQLite, no payments</td></tr>
+      </table>
+    </div>
   </div>
 
   <footer>
