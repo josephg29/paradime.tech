@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Punch the Monkey Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fredoka+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1><i class="fas fa-heart"></i> Punch the Monkey Tracker</h1>
+                <p class="subtitle">Real-time updates on the world's most beloved baby macaque</p>
+                <div class="last-updated">
+                    <i class="fas fa-sync-alt"></i> Last updated: <span id="update-time">Loading...</span>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="status-grid">
+                <div class="status-card current-status">
+                    <div class="card-header">
+                        <h2><i class="fas fa-heartbeat"></i> Current Status</h2>
+                        <span class="status-badge good">DOING WELL</span>
+                    </div>
+                    <div class="status-content">
+                        <div class="status-indicator">
+                            <div class="indicator-circle good"></div>
+                            <div class="indicator-text">
+                                <h3>Protected & Accepted</h3>
+                                <p>Punch is now being guarded by at least two adult monkeys in his troop</p>
+                            </div>
+                        </div>
+                        <div class="status-details">
+                            <div class="detail-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <div>
+                                    <strong>Age:</strong> 7 months (born July 26, 2025)
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <strong>Location:</strong> Ichikawa City Zoo, near Tokyo, Japan
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-users"></i>
+                                <div>
+                                    <strong>Social Status:</strong> Accepted by troop, less dependent on plushie
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="status-card recent-news">
+                    <div class="card-header">
+                        <h2><i class="fas fa-newspaper"></i> Latest News</h2>
+                        <span class="news-badge">BREAKTHROUGH</span>
+                    </div>
+                    <div class="news-content">
+                        <article class="news-item">
+                            <div class="news-date">March 2026</div>
+                            <h3>Punch Adopted by Female Monkey</h3>
+                            <p>A female macaque has chosen to groom and care for Punch, showing full acceptance into the troop.</p>
+                            <a href="#" class="news-link">Read more <i class="fas fa-external-link-alt"></i></a>
+                        </article>
+                        <article class="news-item">
+                            <div class="news-date">February 2026</div>
+                            <h3>Adult Protectors Step In</h3>
+                            <p>Two adult monkeys were captured on video shielding Punch from others, showing protective behavior.</p>
+                            <a href="#" class="news-link">Watch video <i class="fas fa-play-circle"></i></a>
+                        </article>
+                        <article class="news-item">
+                            <div class="news-date">January 2026</div>
+                            <h3>Plushie Dependency Decreasing</h3>
+                            <p>Zoo reports Punch spending less time with his orangutan plushie, preferring real monkey company.</p>
+                            <a href="#" class="news-link">See photos <i class="fas fa-images"></i></a>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="status-card timeline">
+                    <div class="card-header">
+                        <h2><i class="fas fa-history"></i> Journey Timeline</h2>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-item positive">
+                            <div class="timeline-date">March 2026</div>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-text">
+                                <h4>Adopted by female monkey</h4>
+                                <p>Full acceptance into troop with grooming and care</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item positive">
+                            <div class="timeline-date">February 2026</div>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-text">
+                                <h4>Adult protection begins</h4>
+                                <p>Two adults start shielding Punch from others</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item neutral">
+                            <div class="timeline-date">January 2026</div>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-text">
+                                <h4>Plushie use decreases</h4>
+                                <p>Spending more time with monkeys, less with toy</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item negative">
+                            <div class="timeline-date">December 2025</div>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-text">
+                                <h4>Social struggles continue</h4>
+                                <p>Still on fringes of troop, bullied occasionally</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item negative">
+                            <div class="timeline-date">July 2025</div>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-text">
+                                <h4>Born & rejected by mother</h4>
+                                <p>Abandoned at birth, given orangutan plushie for comfort</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="status-card quick-facts">
+                    <div class="card-header">
+                        <h2><i class="fas fa-lightbulb"></i> Quick Facts</h2>
+                    </div>
+                    <div class="facts-content">
+                        <div class="fact-item">
+                            <i class="fas fa-paw"></i>
+                            <div>
+                                <strong>Species:</strong> Japanese macaque (Macaca fuscata)
+                            </div>
+                        </div>
+                        <div class="fact-item">
+                            <i class="fas fa-weight"></i>
+                            <div>
+                                <strong>Weight:</strong> Approximately 1.5 kg (growing)
+                            </div>
+                        </div>
+                        <div class="fact-item">
+                            <i class="fas fa-teddy-bear"></i>
+                            <div>
+                                <strong>Comfort Toy:</strong> Orange orangutan plushie
+                            </div>
+                        </div>
+                        <div class="fact-item">
+                            <i class="fas fa-users"></i>
+                            <div>
+                                <strong>Troop Size:</strong> 50+ monkeys at Ichikawa Zoo
+                            </div>
+                        </div>
+                        <div class="fact-item">
+                            <i class="fas fa-star"></i>
+                            <div>
+                                <strong>Internet Fame:</strong> Viral sensation since December 2025
+                            </div>
+                        </div>
+                        <div class="fact-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <div>
+                                <strong>Zoo Response:</strong> 10-minute viewing limits to reduce stress
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="status-card social-media">
+                    <div class="card-header">
+                        <h2><i class="fas fa-hashtag"></i> Social Buzz</h2>
+                    </div>
+                    <div class="social-content">
+                        <div class="social-metric">
+                            <div class="metric-value">2.4M+</div>
+                            <div class="metric-label">TikTok Views</div>
+                        </div>
+                        <div class="social-metric">
+                            <div class="metric-value">850K+</div>
+                            <div class="metric-label">Instagram Posts</div>
+                        </div>
+                        <div class="social-metric">
+                            <div class="metric-value">150K+</div>
+                            <div class="metric-label">Reddit Members</div>
+                        </div>
+                        <div class="social-links">
+                            <a href="#" class="social-link twitter"><i class="fab fa-twitter"></i> #PunchTheMonkey</a>
+                            <a href="#" class="social-link instagram"><i class="fab fa-instagram"></i> @punchupdates</a>
+                            <a href="#" class="social-link reddit"><i class="fab fa-reddit"></i> r/punchthemonkey</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="status-card zoo-info">
+                    <div class="card-header">
+                        <h2><i class="fas fa-map-marked-alt"></i> Zoo Information</h2>
+                    </div>
+                    <div class="zoo-content">
+                        <div class="zoo-detail">
+                            <i class="fas fa-university"></i>
+                            <div>
+                                <strong>Ichikawa City Zoo</strong>
+                                <p>Near Tokyo, Japan</p>
+                            </div>
+                        </div>
+                        <div class="zoo-detail">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>Viewing Rules</strong>
+                                <p>10-minute limits, quiet zones enforced</p>
+                            </div>
+                        </div>
+                        <div class="zoo-detail">
+                            <i class="fas fa-user-shield"></i>
+                            <div>
+                                <strong>Head Keeper</strong>
+                                <p>Kosuke Kano (24 years old)</p>
+                            </div>
+                        </div>
+                        <div class="zoo-detail">
+                            <i class="fas fa-bullhorn"></i>
+                            <div>
+                                <strong>Official Statement</strong>
+                                <p>"Helping Punch learn the rules of monkey society is our most important task."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gallery Section -->
+            <div class="gallery-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-images"></i> Punch Gallery</h2>
+                    <p class="section-subtitle">A collection of photos showing Punch's journey from rejection to acceptance</p>
+                </div>
+                
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e2/Punch_the_Monkey_Ichikawa_City_Zoo_2026.png" alt="Punch the baby Japanese macaque" loading="lazy">
+                        <div class="gallery-caption">
+                            <h3>Punch at Birth</h3>
+                            <p>Punch shortly after being born at Ichikawa City Zoo on July 26, 2025</p>
+                            <span class="gallery-date">July 2025</span>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Punch_the_Monkey_Ichikawa_City_Zoo_2026_2.png" alt="Punch with his orangutan plushie" loading="lazy">
+                        <div class="gallery-caption">
+                            <h3>With Comfort Plushie</h3>
+                            <p>Punch clinging to his Djungelskog orangutan plushie from IKEA</p>
+                            <span class="gallery-date">February 2026</span>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Punch_the_Monkey_Ichikawa_City_Zoo_2026_3.png" alt="Punch sleeping with plushie" loading="lazy">
+                        <div class="gallery-caption">
+                            <h3>Sleeping with Plushie</h3>
+                            <p>Punch sleeping next to his orangutan plushie for comfort and security</p>
+                            <span class="gallery-date">February 2026</span>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Punch_the_Monkey_Ichikawa_City_Zoo_2026_4.png" alt="Punch holding plushie" loading="lazy">
+                        <div class="gallery-caption">
+                            <h3>Holding the Plushie</h3>
+                            <p>Punch holding onto his orangutan plushie while exploring his enclosure</p>
+                            <span class="gallery-date">February 2026</span>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Punch_the_Monkey_Ichikawa_City_Zoo_2026_5.png" alt="Punch hiding with plushie" loading="lazy">
+                        <div class="gallery-caption">
+                            <h3>Hiding with Plushie</h3>
+                            <p>Punch seeking shelter with his plushie during early social struggles</p>
+                            <span class="gallery-date">February 2026</span>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/65/Punch_the_Monkey_Ichikawa_City_Zoo_2026_6.png" alt="Punch on plushie" loading="lazy">
+                        <div class="gallery-caption">
+                            <h3>Sitting on Plushie</h3>
+                            <p>Punch using his plushie as a seat while observing his surroundings</p>
+                            <span class="gallery-date">February 2026</span>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Punch_the_Monkey_Ichikawa_City_Zoo_2026_7.png" alt="Punch approaching another monkey" loading="lazy">
+                        <div class="gallery-caption">
+                            <h3>Social Approach</h3>
+                            <p>Punch cautiously approaching another monkey in the troop</p>
+                            <span class="gallery-date">February 2026</span>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Punch_the_Monkey_Ichikawa_City_Zoo_2026_8.png" alt="Punch at 2 days old" loading="lazy">
+                        <div class="gallery-caption">
+                            <h3>Two Days Old</h3>
+                            <p>Punch at just 2 days old, shortly after being abandoned by his mother</p>
+                            <span class="gallery-date">July 2025</span>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Punch_the_Monkey_Ichikawa_City_Zoo_2026_9.png" alt="Punch with plushie closeup" loading="lazy">
+                        <div class="gallery-caption">
+                            <h3>Close-up with Plushie</h3>
+                            <p>Detailed view of Punch with his beloved orangutan plushie</p>
+                            <span class="gallery-date">March 2026</span>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Punch_the_Monkey_Ichikawa_City_Zoo_2026_10.png" alt="Punch in Monkey Mountain" loading="lazy">
+                        <div class="gallery-caption">
+                            <h3>Monkey Mountain</h3>
+                            <p>The Monkey Mountain enclosure at Ichikawa City Zoo where Punch lives</p>
+                            <span class="gallery-date">February 2026</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-note">
+                    <p><i class="fas fa-info-circle"></i> <strong>Note:</strong> These are actual photos of Punch provided by Ichikawa City Zoo and shared under Creative Commons license. All images show Punch's journey from birth through his social integration.</p>
+                </div>
+            </div>
+
+            <div class="call-to-action">
+                <h2><i class="fas fa-bell"></i> Stay Updated</h2>
+                <p>Get notified when there's new information about Punch's progress</p>
+                <div class="subscribe-form">
+                    <input type="email" placeholder="Your email address" id="email-input">
+                    <button id="subscribe-btn"><i class="fas fa-paper-plane"></i> Subscribe</button>
+                </div>
+                <p class="form-note">No spam, just important updates about Punch's wellbeing</p>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-heart"></i> Punch Tracker
+                </div>
+                <div class="footer-links">
+                    <a href="#"><i class="fas fa-question-circle"></i> About</a>
+                    <a href="#"><i class="fas fa-envelope"></i> Contact</a>
+                    <a href="#"><i class="fas fa-shield-alt"></i> Privacy</a>
+                    <a href="#"><i class="fas fa-code"></i> GitHub</a>
+                </div>
+                <div class="footer-copyright">
+                    <p>Made with <i class="fas fa-heart" style="color: #ff6b6b;"></i> by animal lovers</p>
+                    <p>Data sourced from official zoo statements and verified news reports</p>
+                    <p>Last comprehensive update: April 2026</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
