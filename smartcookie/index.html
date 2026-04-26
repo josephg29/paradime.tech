@@ -12,17 +12,8 @@
       font-style: normal;
       font-display: swap;
     }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      font-size: 13px;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { font-size: 13px; }
     body {
       font-family: 'Monocraft', 'Courier New', monospace;
       background: #fafafa;
@@ -32,11 +23,9 @@
       flex-direction: column;
       overflow-x: hidden;
       -webkit-font-smoothing: none;
-      -moz-osx-font-smoothing: unset;
     }
 
-    /* ─── HEADER / NAV ─── */
-
+    /* ─── NAV ─── */
     header {
       width: 100%;
       border-bottom: 1px solid #111;
@@ -51,279 +40,144 @@
       background: #fafafa;
       z-index: 100;
     }
+    .brand { font-size: 0.85rem; letter-spacing: 0.08em; text-transform: lowercase; font-weight: normal; white-space: nowrap; text-decoration: none; color: #111; }
+    nav { display: flex; align-items: baseline; gap: 0.25rem; flex-wrap: wrap; font-size: 0.7rem; letter-spacing: 0.04em; }
+    nav a { color: #111; text-decoration: none; padding: 0.15rem 0.4rem; transition: background 0.1s; white-space: nowrap; }
+    nav a:hover, nav a.active { background: #111; color: #fafafa; }
+    .nav-sep { color: #999; user-select: none; }
+    .nav-br  { color: #999; user-select: none; font-size: 0.7rem; }
 
-    .brand {
-      font-size: 0.85rem;
-      letter-spacing: 0.08em;
-      text-transform: lowercase;
-      font-weight: normal;
-      white-space: nowrap;
-      text-decoration: none;
-      color: #111;
-    }
-
-    nav {
-      display: flex;
-      align-items: baseline;
-      gap: 0.25rem;
-      flex-wrap: wrap;
-      font-size: 0.7rem;
-      letter-spacing: 0.04em;
-    }
-
-    nav a {
-      color: #111;
-      text-decoration: none;
-      padding: 0.15rem 0.4rem;
-      transition: background 0.1s;
-      white-space: nowrap;
-    }
-
-    nav a:hover {
-      background: #111;
-      color: #fafafa;
-    }
-
-    nav a.active {
-      background: #111;
-      color: #fafafa;
-    }
-
-    .nav-separator {
-      color: #999;
-      user-select: none;
-    }
-
-    .nav-bracket {
-      color: #999;
-      user-select: none;
-      font-size: 0.7rem;
-    }
-
-    /* ─── MAIN CONTENT ─── */
-
+    /* ─── MAIN ─── */
     main {
       flex: 1;
-      padding: 3rem 2rem;
-      max-width: 800px;
+      padding: 2.5rem 2rem 3rem;
+      max-width: 1080px;
       margin: 0 auto;
       width: 100%;
+      position: relative;
+      z-index: 1;
     }
-
-    .project-header {
-      margin-bottom: 3rem;
-      text-align: center;
-    }
-
+    .project-header { text-align: center; margin-bottom: 2rem; }
     .project-title {
-      font-size: clamp(2rem, 5vw, 3rem);
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
       font-weight: normal;
       letter-spacing: 0.1em;
       text-transform: lowercase;
-      margin-bottom: 0.5rem;
-      line-height: 1.2;
+      margin-bottom: 0.4rem;
     }
+    .project-sub { font-size: 0.7rem; color: #888; letter-spacing: 0.15em; text-transform: lowercase; }
 
-    .project-subtitle {
-      font-size: 0.9rem;
-      color: #888;
-      letter-spacing: 0.15em;
-      text-transform: lowercase;
-      margin-bottom: 1.5rem;
-    }
-
-    .demo-tag {
-      display: inline-block;
-      background: #111;
-      color: #fafafa;
-      padding: 0.3rem 1rem;
-      font-size: 0.7rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .content-grid {
+    /* ─── APP LAYOUT ─── */
+    .app-wrap {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-      margin-bottom: 3rem;
+      grid-template-columns: 300px 1fr;
+      gap: 1.5rem;
+      align-items: start;
     }
+    @media (max-width: 720px) { .app-wrap { grid-template-columns: 1fr; } }
 
-    @media (min-width: 768px) {
-      .content-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
+    /* ─── STUDIO ─── */
+    .studio { border: 1px solid #111; background: #fff; }
+    .section { padding: 1.1rem 1.3rem; border-bottom: 1px solid #eee; }
+    .section:last-child { border-bottom: none; }
+    .section-label { font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: #999; margin-bottom: 0.9rem; }
 
-    .content-card {
-      border: 1px solid #ddd;
-      padding: 2rem;
-      background: #fff;
-    }
+    .control-group { margin-bottom: 0.85rem; }
+    .control-group:last-child { margin-bottom: 0; }
+    .control-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.45rem; }
+    .control-name  { font-size: 0.72rem; letter-spacing: 0.05em; }
+    .control-value { font-size: 0.62rem; color: #555; letter-spacing: 0.04em; min-width: 80px; text-align: right; }
 
-    .content-card h2 {
-      font-size: 1.2rem;
-      font-weight: normal;
-      letter-spacing: 0.08em;
-      margin-bottom: 1.5rem;
-      text-transform: lowercase;
-      color: #111;
-    }
-
-    .content-card p {
-      font-size: 0.9rem;
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
-      color: #333;
-    }
-
-    .features-list {
-      list-style: none;
-      margin: 1.5rem 0;
-    }
-
-    .features-list li {
-      padding: 0.8rem 0;
-      border-bottom: 1px solid #eee;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      font-size: 0.9rem;
-    }
-
-    .features-list li:last-child {
-      border-bottom: none;
-    }
-
-    .feature-icon {
-      font-size: 1.2rem;
-      min-width: 1.5rem;
-      text-align: center;
-    }
-
-    .demo-preview {
-      text-align: center;
-      padding: 2rem;
-      background: #f5f5f5;
-      border: 1px solid #ddd;
-      margin-bottom: 2rem;
-    }
-
-    .preview-emoji {
-      font-size: 3rem;
-      margin-bottom: 1rem;
+    .slider {
+      width: 100%;
+      height: 2px;
+      -webkit-appearance: none;
+      appearance: none;
+      background: #ccc;
+      outline: none;
+      cursor: pointer;
       display: block;
     }
+    .slider::-webkit-slider-thumb { -webkit-appearance: none; width: 10px; height: 10px; background: #111; cursor: pointer; }
+    .slider::-moz-range-thumb { width: 10px; height: 10px; background: #111; border: none; cursor: pointer; }
+    .slider-ends { display: flex; justify-content: space-between; margin-top: 0.3rem; }
+    .slider-ends span { font-size: 0.52rem; color: #bbb; letter-spacing: 0.05em; }
 
-    .preview-text {
-      font-size: 0.9rem;
-      color: #666;
-      font-style: italic;
+    .stepper { display: flex; align-items: center; gap: 0.7rem; }
+    .step-btn {
+      width: 26px; height: 26px;
+      border: 1px solid #111; background: none;
+      font-family: 'Monocraft', monospace; font-size: 1rem;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: all 0.1s; line-height: 1;
     }
+    .step-btn:hover { background: #111; color: #fafafa; }
+    .step-btn:disabled { border-color: #ddd; color: #ccc; cursor: default; }
+    .step-btn:disabled:hover { background: none; color: #ccc; }
+    .count-display { font-size: 0.75rem; letter-spacing: 0.06em; }
 
-    .demo-cta {
-      text-align: center;
-      margin: 2rem 0;
+    .toggle-grid { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+    .toggle-btn {
+      border: 1px solid #111; background: none;
+      font-family: 'Monocraft', monospace; font-size: 0.6rem;
+      letter-spacing: 0.06em; padding: 0.28rem 0.55rem;
+      cursor: pointer; transition: all 0.1s; text-transform: lowercase;
     }
+    .toggle-btn:hover { background: #eee; }
+    .toggle-btn.active { background: #111; color: #fafafa; }
 
-    .demo-button {
-      display: inline-block;
-      background: #111;
-      color: #fafafa;
-      padding: 0.8rem 2rem;
-      font-size: 0.8rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      text-decoration: none;
-      border: 1px solid #111;
-      transition: all 0.2s;
+    .check-grid { display: flex; flex-direction: column; gap: 0.45rem; }
+    .check-label { display: flex; align-items: center; gap: 0.55rem; font-size: 0.68rem; letter-spacing: 0.04em; cursor: pointer; }
+    .check-label input[type="checkbox"] { width: 11px; height: 11px; accent-color: #111; cursor: pointer; flex-shrink: 0; }
+
+    /* ─── RECIPE OUTPUT ─── */
+    .recipe { border: 1px solid #111; background: #fff; padding: 1.6rem 1.8rem; }
+    .recipe-title { font-size: 1rem; font-weight: normal; letter-spacing: 0.06em; text-transform: lowercase; line-height: 1.3; margin-bottom: 0.35rem; }
+    .recipe-subtitle { font-size: 0.6rem; color: #888; letter-spacing: 0.12em; text-transform: lowercase; margin-bottom: 1.3rem; }
+    .recipe-divider { border-top: 1px solid #eee; margin: 1rem 0; }
+
+    .ing-row {
+      display: grid;
+      grid-template-columns: 88px 1fr;
+      gap: 0.5rem;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid #f5f5f5;
+      align-items: start;
     }
+    .ing-row:last-child { border-bottom: none; }
+    .ing-amount { font-size: 0.78rem; letter-spacing: 0.03em; text-align: right; }
+    .grams-note { display: block; font-size: 0.52rem; color: #bbb; margin-top: 0.1rem; }
+    .ing-label { font-size: 0.72rem; line-height: 1.5; letter-spacing: 0.02em; }
+    .ing-note { font-size: 0.58rem; color: #888; margin-top: 0.2rem; font-style: italic; line-height: 1.4; }
 
-    .demo-button:hover {
-      background: #fafafa;
-      color: #111;
+    .method-step {
+      display: grid;
+      grid-template-columns: 18px 1fr;
+      gap: 0.5rem;
+      padding: 0.45rem 0;
+      font-size: 0.7rem;
+      line-height: 1.7;
+      letter-spacing: 0.02em;
+      color: #333;
+      border-bottom: 1px solid #f5f5f5;
     }
+    .method-step:last-child { border-bottom: none; }
+    .step-num { color: #bbb; font-size: 0.58rem; padding-top: 0.15rem; }
 
-    .demo-note {
-      text-align: center;
-      padding: 2rem;
-      border-top: 1px dashed #ddd;
-      margin-top: 3rem;
-    }
+    .recipe-footer { margin-top: 1.3rem; padding-top: 0.9rem; border-top: 1px dashed #ddd; text-align: center; }
+    .src-link { font-size: 0.6rem; letter-spacing: 0.1em; color: #bbb; text-decoration: none; text-transform: lowercase; }
+    .src-link:hover { color: #111; }
 
-    .note-text {
-      font-size: 0.8rem;
-      color: #888;
-      font-style: italic;
-      line-height: 1.6;
-    }
-
-    .slider-demo {
-      margin: 1.5rem 0;
-    }
-
-    .slider-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.6rem 0;
-      border-bottom: 1px solid #eee;
-      font-size: 0.8rem;
-    }
-
-    .slider-row:last-child {
-      border-bottom: none;
-    }
-
-    .slider-label {
-      color: #555;
-      min-width: 80px;
-    }
-
-    .slider-track {
-      flex: 1;
-      height: 2px;
-      background: #ddd;
-      margin: 0 1rem;
-      position: relative;
-    }
-
-    .slider-fill {
-      position: absolute;
-      left: 0;
-      top: 0;
-      height: 100%;
-      background: #111;
-    }
-
-    .slider-val {
-      color: #111;
-      min-width: 80px;
-      text-align: right;
-    }
-
-    /* ─── SUBTLE GRID ─── */
-
+    /* ─── GRID BG ─── */
     .grid-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 0;
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none; z-index: 0;
       background-image:
         linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px),
         linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px);
       background-size: 28px 28px;
     }
-
-    main, header, footer {
-      position: relative;
-      z-index: 1;
-    }
-
-    /* ─── FOOTER ─── */
+    header, main, footer { position: relative; z-index: 1; }
 
     footer {
       border-top: 1px solid #ddd;
@@ -333,28 +187,13 @@
       letter-spacing: 0.1em;
       text-align: right;
       text-transform: lowercase;
+      position: relative;
+      z-index: 1;
     }
-
-    /* ─── RESPONSIVE ─── */
-
     @media (max-width: 640px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 1rem 1.25rem;
-      }
-
-      nav {
-        font-size: 0.75rem;
-      }
-
-      main {
-        padding: 2rem 1.25rem;
-      }
-
-      .content-card {
-        padding: 1.5rem;
-      }
+      header { flex-direction: column; align-items: flex-start; padding: 1rem 1.25rem; }
+      main { padding: 1.5rem 1.25rem 2rem; }
+      .recipe { padding: 1.2rem 1.2rem; }
     }
   </style>
 </head>
@@ -366,102 +205,444 @@
     <a href="/" class="brand">paradime.technologies</a>
     <nav>
       <a href="/index.html">landing</a>
-      <span class="nav-separator">/</span>
+      <span class="nav-sep">/</span>
       <a href="/flowers" class="active">flowers</a>
-      <span class="nav-separator">/</span>
+      <span class="nav-sep">/</span>
       <a href="/contact">contact</a>
-      <span class="nav-separator">/</span>
+      <span class="nav-sep">/</span>
       <a href="/about">about</a>
-      <span class="nav-separator">&nbsp;</span>
-      <span class="nav-bracket">:[</span>
+      <span class="nav-sep">&nbsp;</span>
+      <span class="nav-br">:[</span>
       <a href="/forward"> look forward</a>
-      <span class="nav-bracket">]</span>
+      <span class="nav-br">]</span>
     </nav>
   </header>
 
   <main>
     <div class="project-header">
       <h1 class="project-title">smart.cookie</h1>
-      <p class="project-subtitle">Interactive Recipe Calculator</p>
-      <span class="demo-tag">Open Source</span>
+      <p class="project-sub">tune texture · sweetness · saltiness → get the recipe</p>
     </div>
 
-    <div class="content-grid">
-      <div class="content-card">
-        <h2>Tune Your Perfect Cookie</h2>
-        <p>smart.cookie turns cookie baking into a precision craft. Dial in texture, sweetness, and saltiness with sliders and watch the recipe recalculate in real time — every gram, every ratio, every substitution handled for you.</p>
+    <div class="app-wrap">
 
-        <ul class="features-list">
-          <li>
-            <span class="feature-icon">🎚️</span>
-            <span><strong>Live Sliders</strong> — chewy → crispy, sweet, salty</span>
-          </li>
-          <li>
-            <span class="feature-icon">📐</span>
-            <span><strong>Dynamic Scaling</strong> — 6 to 48 cookies per batch</span>
-          </li>
-          <li>
-            <span class="feature-icon">🌱</span>
-            <span><strong>Dietary Modes</strong> — gluten-free, vegan, dairy-free, nut-free</span>
-          </li>
-          <li>
-            <span class="feature-icon">🔄</span>
-            <span><strong>Auto Substitutions</strong> — ingredient swaps computed instantly</span>
-          </li>
-          <li>
-            <span class="feature-icon">✅</span>
-            <span><strong>Ingredient Check</strong> — optional add-ins toggled on/off</span>
-          </li>
-          <li>
-            <span class="feature-icon">⚡</span>
-            <span><strong>Built with React + TypeScript + Vite</strong></span>
-          </li>
-        </ul>
+      <!-- Studio -->
+      <div class="studio">
+
+        <div class="section">
+          <div class="section-label">taste</div>
+
+          <div class="control-group">
+            <div class="control-header">
+              <span class="control-name">texture</span>
+              <span class="control-value" id="texture-desc">soft &amp; chewy</span>
+            </div>
+            <input type="range" class="slider" id="texture" min="0" max="100" value="25">
+            <div class="slider-ends"><span>chewy</span><span>crispy</span></div>
+          </div>
+
+          <div class="control-group">
+            <div class="control-header">
+              <span class="control-name">sweetness</span>
+              <span class="control-value" id="sweetness-desc">+0%</span>
+            </div>
+            <input type="range" class="slider" id="sweetness" min="-30" max="30" value="0">
+            <div class="slider-ends"><span>−30%</span><span>+30%</span></div>
+          </div>
+
+          <div class="control-group">
+            <div class="control-header">
+              <span class="control-name">saltiness</span>
+              <span class="control-value" id="saltiness-desc">+0%</span>
+            </div>
+            <input type="range" class="slider" id="saltiness" min="-50" max="50" value="0">
+            <div class="slider-ends"><span>−50%</span><span>+50%</span></div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-label">batch</div>
+          <div class="stepper">
+            <button class="step-btn" id="count-down">−</button>
+            <span class="count-display" id="count-display">18 cookies</span>
+            <button class="step-btn" id="count-up">+</button>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-label">dietary</div>
+          <div class="toggle-grid">
+            <button class="toggle-btn" data-key="glutenFree">gluten-free</button>
+            <button class="toggle-btn" data-key="dairyFree">dairy-free</button>
+            <button class="toggle-btn" data-key="eggFree">egg-free</button>
+            <button class="toggle-btn" data-key="vegan">vegan</button>
+            <button class="toggle-btn" data-key="nutFree">nut-free</button>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-label">include</div>
+          <div class="check-grid">
+            <label class="check-label">
+              <input type="checkbox" class="ing-check" data-id="vanilla" checked>
+              <span>vanilla extract</span>
+            </label>
+            <label class="check-label">
+              <input type="checkbox" class="ing-check" data-id="chips" checked>
+              <span>chocolate chips</span>
+            </label>
+          </div>
+        </div>
+
       </div>
 
-      <div class="content-card">
-        <div class="demo-preview">
-          <span class="preview-emoji">🍪</span>
-          <p class="preview-text">Recipe updates as you move the sliders</p>
-        </div>
-
-        <h2>How It Works</h2>
-        <p>Adjust three taste axes and a batch size stepper. The calculation engine converts your preferences into precise gram weights, adjusts for dietary restrictions, and resolves ingredient substitutions automatically — no guesswork.</p>
-
-        <div class="slider-demo">
-          <div class="slider-row">
-            <span class="slider-label">texture</span>
-            <div class="slider-track"><div class="slider-fill" style="width: 30%"></div></div>
-            <span class="slider-val">thick & chewy</span>
-          </div>
-          <div class="slider-row">
-            <span class="slider-label">sweetness</span>
-            <div class="slider-track"><div class="slider-fill" style="width: 55%"></div></div>
-            <span class="slider-val">balanced</span>
-          </div>
-          <div class="slider-row">
-            <span class="slider-label">saltiness</span>
-            <div class="slider-track"><div class="slider-fill" style="width: 45%"></div></div>
-            <span class="slider-val">standard</span>
-          </div>
-        </div>
-
-        <div class="demo-cta">
-          <a href="https://github.com/josephg29/smartcookie" class="demo-button" target="_blank">
-            View on GitHub →
-          </a>
+      <!-- Recipe output -->
+      <div class="recipe">
+        <div id="recipe-title" class="recipe-title"></div>
+        <div id="recipe-subtitle" class="recipe-subtitle"></div>
+        <div class="recipe-divider"></div>
+        <div id="ingredients-out"></div>
+        <div class="recipe-divider"></div>
+        <div id="method-out"></div>
+        <div class="recipe-footer">
+          <a href="https://github.com/josephg29/smartcookie" class="src-link" target="_blank">view source on github →</a>
         </div>
       </div>
-    </div>
 
-    <div class="demo-note">
-      <p class="note-text">An open-source cookie recipe calculator — tune texture, sweetness, and batch size with sliders to get a dynamically computed recipe. Part of the Paradime Technologies digital garden.</p>
     </div>
   </main>
 
-  <footer>
-    paradime.technologies — 2026
-  </footer>
+  <footer>paradime.technologies — 2026</footer>
+
+  <script>
+    // ── Recipe data ───────────────────────────────────────────────
+    const CHEWY = {
+      cookieWeightGrams: 50, ovenTempF: 325, bakeMinutes: 16,
+      ingredients: [
+        { id: 'flour',       label: 'all-purpose flour',          role: 'flour',           grams: 301  },
+        { id: 'baking-soda', label: 'baking soda',                role: 'leavening',       grams: 2.5  },
+        { id: 'salt',        label: 'salt',                       role: 'salt',            grams: 3    },
+        { id: 'butter',      label: 'unsalted butter, melted',    role: 'fat',             grams: 170  },
+        { id: 'brown-sugar', label: 'light brown sugar, packed',  role: 'sweetener-brown', grams: 198  },
+        { id: 'white-sugar', label: 'granulated sugar',           role: 'sweetener-white', grams: 99   },
+        { id: 'egg',         label: 'large egg',                  role: 'egg-whole',       grams: 50   },
+        { id: 'egg-yolk',    label: 'large egg yolk',             role: 'egg-yolk',        grams: 18   },
+        { id: 'vanilla',     label: 'vanilla extract',            role: 'flavor',          grams: 8    },
+        { id: 'chips',       label: 'semisweet chocolate chips',  role: 'add-in',          grams: 212  },
+      ],
+      method: [
+        'Heat oven to {tempF}. Line two baking sheets with parchment.',
+        'Whisk flour, baking soda, and salt in a medium bowl.',
+        'Mix the melted butter with both sugars until smooth. Beat in the egg, yolk{vanillaPhrase}.',
+        'Add the dry ingredients on low speed until just combined. Stir in {addInPhrase}.',
+        'Roll dough into {ballSize} balls. Pull each ball in half, rotate the halves 90°, and rejoin so the jagged surface faces up.',
+        'Space balls 2½ inches apart. Bake {bakeMinutes} minutes, rotating sheets halfway, until edges are set and centers stay soft.',
+        'Cool on the baking sheet — this is what keeps them chewy.',
+      ]
+    };
+
+    const CRISPY = {
+      cookieWeightGrams: 16, ovenTempF: 375, bakeMinutes: 12,
+      ingredients: [
+        { id: 'flour',       label: 'all-purpose flour',          role: 'flour',           grams: 213  },
+        { id: 'baking-soda', label: 'baking soda',                role: 'leavening',       grams: 3.75 },
+        { id: 'salt',        label: 'salt',                       role: 'salt',            grams: 1.5  },
+        { id: 'butter',      label: 'unsalted butter, melted',    role: 'fat',             grams: 113  },
+        { id: 'white-sugar', label: 'granulated sugar',           role: 'sweetener-white', grams: 99   },
+        { id: 'brown-sugar', label: 'light brown sugar, packed',  role: 'sweetener-brown', grams: 66   },
+        { id: 'corn-syrup',  label: 'light corn syrup',           role: 'sweetener-syrup', grams: 40   },
+        { id: 'egg-yolk',    label: 'large egg yolk',             role: 'egg-yolk',        grams: 18   },
+        { id: 'milk',        label: 'whole milk',                 role: 'liquid',          grams: 30   },
+        { id: 'vanilla',     label: 'vanilla extract',            role: 'flavor',          grams: 12   },
+        { id: 'chips',       label: 'semisweet chocolate chips',  role: 'add-in',          grams: 130  },
+      ],
+      method: [
+        'Heat oven to {tempF}. Line two baking sheets with parchment.',
+        'Whisk flour, baking soda, and salt in a medium bowl.',
+        'Beat melted butter, both sugars, and corn syrup on low until blended, about 1 minute. Add yolk, milk{vanillaPhrase}; mix smooth.',
+        'On low speed, add the dry ingredients and mix until just combined. Stir in {addInPhrase}.',
+        'Roll dough into {ballSize} balls. Place 2 inches apart on the sheets.',
+        'Bake one sheet at a time for {bakeMinutes} minutes, rotating halfway, until deep golden and flat.',
+        'Cool on the sheet for 3 minutes, then transfer to a rack to crisp.',
+      ]
+    };
+
+    // ── Format helpers ────────────────────────────────────────────
+    const DENSITIES = {
+      'flour':       { g: 142,  tbsp: false },
+      'baking-soda': { g: 240,  tbsp: true  },
+      'salt':        { g: 288,  tbsp: true  },
+      'butter':      { g: 227,  tbsp: true  },
+      'brown-sugar': { g: 198,  tbsp: false },
+      'white-sugar': { g: 198,  tbsp: false },
+      'corn-syrup':  { g: 322,  tbsp: true  },
+      'milk':        { g: 245,  tbsp: true  },
+      'vanilla':     { g: 208,  tbsp: true  },
+      'chips':       { g: 170,  tbsp: false },
+    };
+
+    const FRACS = [[0,''], [1/8,'⅛'], [1/4,'¼'], [1/3,'⅓'], [3/8,'⅜'],
+                   [1/2,'½'], [5/8,'⅝'], [2/3,'⅔'], [3/4,'¾'], [7/8,'⅞'], [1,'']];
+
+    function fmtNum(val) {
+      const whole = Math.floor(val);
+      const rem = val - whole;
+      let best = '', bestD = Infinity, carry = 0;
+      for (const [f, g] of FRACS) {
+        const d = Math.abs(rem - f);
+        if (d < bestD) { bestD = d; best = g; carry = f === 1 ? 1 : 0; }
+      }
+      const w = whole + carry;
+      if (w === 0 && best === '') return '¼';
+      if (w === 0) return best;
+      if (best === '') return String(w);
+      return `${w} ${best}`;
+    }
+
+    function formatAmt(grams, id, role) {
+      if (grams <= 0) return { disp: '—', grams: 0 };
+      if (id === 'egg') {
+        const n = grams / 50;
+        return { disp: n < 0.75 ? '½' : n < 1.5 ? '1' : String(Math.round(n)), grams };
+      }
+      if (id === 'egg-yolk') {
+        const n = grams / 18;
+        return { disp: n < 0.75 ? '½' : n < 1.5 ? '1' : String(Math.round(n)), grams };
+      }
+      const d = DENSITIES[id];
+      if (!d) return { disp: `${Math.round(grams)} g`, grams };
+      const cups = grams / d.g, tbsps = cups * 16, tsps = cups * 48;
+      if (d.tbsp || cups < 0.25) {
+        if (tsps < 3)  return { disp: `${fmtNum(tsps)} tsp`, grams };
+        if (tbsps < 4) return { disp: `${fmtNum(tbsps)} tbsp`, grams };
+      }
+      if (role === 'fat') {
+        if (tbsps >= 8) {
+          const sticks = tbsps / 8;
+          return { disp: `${fmtNum(sticks)} stick${sticks >= 1.25 ? 's' : ''}`, grams };
+        }
+        return { disp: `${fmtNum(Math.round(tbsps * 2) / 2)} tbsp`, grams };
+      }
+      return { disp: `${fmtNum(cups)} cup${cups >= 1.25 ? 's' : ''}`, grams };
+    }
+
+    function ballSize(g) {
+      return g >= 35 ? 'scant ¼-cup' : g >= 22 ? '2-tablespoon' : '1¼-inch';
+    }
+
+    // ── Substitutions ─────────────────────────────────────────────
+    function sub(ing, diet) {
+      const df = diet.dairyFree || diet.vegan;
+      const ef = diet.eggFree  || diet.vegan;
+      if (ing.id === 'flour'    && diet.glutenFree) return { label: '1-to-1 gluten-free flour blend (e.g., King Arthur)', note: 'Use a blend that contains xanthan gum.' };
+      if (ing.id === 'butter'   && df)              return { label: "vegan butter, melted (e.g., Miyoko's)", note: 'Use a stick-style baking butter, not a soft spread.' };
+      if (ing.id === 'milk'     && df)              return { label: 'unsweetened oat milk' };
+      if (ing.id === 'chips'    && df)              return { label: 'dairy-free semisweet chocolate chips' };
+      if (ing.id === 'egg'      && ef)              return { label: 'flax egg', note: 'Per egg: 1 tbsp ground flaxseed + 3 tbsp water, rest 5 min.' };
+      if (ing.id === 'egg-yolk' && ef)              return { label: 'flax egg', override: '½', note: 'Per ½ flax egg: 1½ tsp ground flaxseed + 1½ tbsp water, rest 5 min.' };
+      return { label: ing.label };
+    }
+
+    // ── Calculation ───────────────────────────────────────────────
+    const PRIORITY = {
+      'flour':0,'leavening':1,'salt':2,'fat':3,
+      'sweetener-brown':4,'sweetener-white':5,'sweetener-syrup':6,
+      'liquid':7,'egg-whole':8,'egg-yolk':9,'flavor':10,'add-in':11
+    };
+
+    function lerp(a, b, t) { return a + (b - a) * t; }
+
+    function norm(recipe) {
+      const total = recipe.ingredients.reduce((s, i) => s + i.grams, 0);
+      return recipe.ingredients.map(i => ({ ...i, frac: i.grams / total }));
+    }
+
+    function blend(t) {
+      const C = norm(CHEWY), K = norm(CRISPY);
+      const ids = new Set([...C.map(i=>i.id), ...K.map(i=>i.id)]);
+      const out = new Map();
+      for (const id of ids) {
+        const c = C.find(i=>i.id===id), k = K.find(i=>i.id===id);
+        const f = lerp(c ? c.frac : 0, k ? k.frac : 0, t);
+        if (f > 0) out.set(id, { ...(c||k), frac: f });
+      }
+      return {
+        fracs: out,
+        tempF:            lerp(CHEWY.ovenTempF,         CRISPY.ovenTempF,         t),
+        bakeMinutes:      lerp(CHEWY.bakeMinutes,        CRISPY.bakeMinutes,       t),
+        cookieWeightGrams:lerp(CHEWY.cookieWeightGrams,  CRISPY.cookieWeightGrams, t),
+      };
+    }
+
+    function describeTexture(v) {
+      if (v < 15) return 'thick & chewy';
+      if (v < 40) return 'soft & chewy';
+      if (v < 60) return 'balanced';
+      if (v < 85) return 'crisp-edged';
+      return 'thin & crisp';
+    }
+
+    function calculate(state) {
+      const t = state.texture / 100;
+      const b = blend(t);
+      const totalDough = state.count * b.cookieWeightGrams;
+      const swF = 1 + state.sweetness / 100;
+      const saF = 1 + state.saltiness / 100;
+
+      const ings = [];
+      for (const norm of b.fracs.values()) {
+        if (state.excluded.has(norm.id)) continue;
+        let g = norm.frac * totalDough;
+        if (['sweetener-brown','sweetener-white','sweetener-syrup'].includes(norm.role)) g *= swF;
+        if (norm.role === 'salt') g *= saF;
+        if (g <= 0.05) continue;
+
+        const s = sub(norm, state.diet);
+        const amt = s.override ? { disp: s.override, grams: g } : formatAmt(g, norm.id, norm.role);
+        ings.push({ id: norm.id, label: s.label, role: norm.role, amt, note: s.note });
+      }
+
+      // merge flax eggs
+      const eI = ings.findIndex(i => i.id === 'egg'      && i.label === 'flax egg');
+      const yI = ings.findIndex(i => i.id === 'egg-yolk' && i.label === 'flax egg');
+      if (eI !== -1 && yI !== -1) {
+        const merged = { ...ings[eI], amt: { disp: '1', grams: ings[eI].amt.grams + ings[yI].amt.grams }, note: 'Per flax egg: 1 tbsp ground flaxseed + 3 tbsp water, rest 5 min.' };
+        const rest = ings.filter((_,i) => i !== eI && i !== yI);
+        ings.length = 0; ings.push(...rest, merged);
+      }
+
+      ings.sort((a,b) => PRIORITY[a.role] - PRIORITY[b.role]);
+
+      const hasVanilla = ings.some(i => i.id === 'vanilla');
+      const addIns     = ings.filter(i => i.role === 'add-in').map(i => i.label);
+      const tempStr    = String(Math.round(b.tempF / 5) * 5) + '°F';
+      const minsStr    = String(Math.round(b.bakeMinutes));
+      const vPhrase    = hasVanilla ? ', and vanilla' : '';
+      const aPhrase    = addIns.length ? `the ${addIns.join(' and ')}` : 'any add-ins';
+      const bs         = ballSize(b.cookieWeightGrams);
+
+      const baseMethod = t < 0.5 ? CHEWY.method : CRISPY.method;
+      const method = baseMethod.map(s =>
+        s.replace('{tempF}', tempStr)
+         .replace('{bakeMinutes}', minsStr)
+         .replace('{vanillaPhrase}', vPhrase)
+         .replace('{addInPhrase}', aPhrase)
+         .replace('{ballSize}', bs)
+      );
+
+      const tags = [];
+      if (state.diet.vegan) tags.push('vegan');
+      else {
+        if (state.diet.dairyFree) tags.push('dairy-free');
+        if (state.diet.eggFree)   tags.push('egg-free');
+      }
+      if (state.diet.glutenFree) tags.push('gluten-free');
+      if (state.diet.nutFree)    tags.push('nut-free');
+      if (state.sweetness > 5)   tags.push('sweeter');
+      if (state.sweetness < -5)  tags.push('less sweet');
+      if (state.saltiness > 5)   tags.push('saltier');
+      if (state.saltiness < -10) tags.push('less salty');
+      tags.push(`${state.count} cookie${state.count === 1 ? '' : 's'}`);
+
+      return {
+        title:    `your ${describeTexture(state.texture)} chocolate chip cookie`,
+        subtitle: tags.join(' · '),
+        ings, method,
+      };
+    }
+
+    // ── State ─────────────────────────────────────────────────────
+    const state = {
+      texture: 25, sweetness: 0, saltiness: 0, count: 18,
+      excluded: new Set(),
+      diet: { glutenFree: false, dairyFree: false, eggFree: false, vegan: false, nutFree: false },
+    };
+
+    // ── Render ────────────────────────────────────────────────────
+    function render() {
+      const r = calculate(state);
+      document.getElementById('recipe-title').textContent    = r.title;
+      document.getElementById('recipe-subtitle').textContent = r.subtitle;
+
+      const iOut = document.getElementById('ingredients-out');
+      iOut.innerHTML = '';
+      for (const ing of r.ings) {
+        const row = document.createElement('div');
+        row.className = 'ing-row';
+        row.innerHTML =
+          `<div class="ing-amount">${ing.amt.disp}<span class="grams-note">${Math.round(ing.amt.grams)} g</span></div>` +
+          `<div class="ing-label">${ing.label}${ing.note ? `<div class="ing-note">${ing.note}</div>` : ''}</div>`;
+        iOut.appendChild(row);
+      }
+
+      const mOut = document.getElementById('method-out');
+      mOut.innerHTML = '';
+      r.method.forEach((step, i) => {
+        const div = document.createElement('div');
+        div.className = 'method-step';
+        div.innerHTML = `<span class="step-num">${i+1}.</span><span>${step}</span>`;
+        mOut.appendChild(div);
+      });
+    }
+
+    // ── Controls ──────────────────────────────────────────────────
+    document.getElementById('texture').addEventListener('input', function() {
+      state.texture = +this.value;
+      document.getElementById('texture-desc').textContent = describeTexture(state.texture);
+      render();
+    });
+
+    document.getElementById('sweetness').addEventListener('input', function() {
+      state.sweetness = +this.value;
+      const v = state.sweetness;
+      document.getElementById('sweetness-desc').textContent = v > 0 ? `+${v}%` : `${v}%`;
+      render();
+    });
+
+    document.getElementById('saltiness').addEventListener('input', function() {
+      state.saltiness = +this.value;
+      const v = state.saltiness;
+      document.getElementById('saltiness-desc').textContent = v > 0 ? `+${v}%` : `${v}%`;
+      render();
+    });
+
+    function syncCountUI() {
+      document.getElementById('count-display').textContent   = `${state.count} cookies`;
+      document.getElementById('count-down').disabled = state.count <= 6;
+      document.getElementById('count-up').disabled   = state.count >= 48;
+    }
+    document.getElementById('count-down').addEventListener('click', () => { if (state.count > 6)  { state.count--; syncCountUI(); render(); } });
+    document.getElementById('count-up').addEventListener('click',   () => { if (state.count < 48) { state.count++; syncCountUI(); render(); } });
+
+    document.querySelectorAll('.toggle-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const k = btn.dataset.key;
+        if (k === 'vegan') {
+          state.diet.vegan = !state.diet.vegan;
+          if (state.diet.vegan) { state.diet.dairyFree = true; state.diet.eggFree = true; }
+        } else {
+          state.diet[k] = !state.diet[k];
+        }
+        syncToggles(); render();
+      });
+    });
+    function syncToggles() {
+      document.querySelectorAll('.toggle-btn').forEach(b => b.classList.toggle('active', !!state.diet[b.dataset.key]));
+    }
+
+    document.querySelectorAll('.ing-check').forEach(cb => {
+      cb.addEventListener('change', () => {
+        if (cb.checked) state.excluded.delete(cb.dataset.id);
+        else            state.excluded.add(cb.dataset.id);
+        render();
+      });
+    });
+
+    // ── Init ──────────────────────────────────────────────────────
+    syncCountUI();
+    document.getElementById('texture-desc').textContent = describeTexture(state.texture);
+    render();
+  </script>
 
 </body>
 </html>
