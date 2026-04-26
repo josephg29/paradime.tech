@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartCookie — paradime.technologies</title>
+  <style>
+    @font-face {
+      font-family: 'Monocraft';
+      src: url('../fonts/Monocraft.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 13px;
+    }
+
+    body {
+      font-family: 'Monocraft', 'Courier New', monospace;
+      background: #fafafa;
+      color: #111;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      -webkit-font-smoothing: none;
+      -moz-osx-font-smoothing: unset;
+    }
+
+    /* ─── HEADER / NAV ─── */
+
+    header {
+      width: 100%;
+      border-bottom: 1px solid #111;
+      padding: 0.9rem 2rem;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      position: sticky;
+      top: 0;
+      background: #fafafa;
+      z-index: 100;
+    }
+
+    .brand {
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: lowercase;
+      font-weight: normal;
+      white-space: nowrap;
+      text-decoration: none;
+      color: #111;
+    }
+
+    nav {
+      display: flex;
+      align-items: baseline;
+      gap: 0.25rem;
+      flex-wrap: wrap;
+      font-size: 0.7rem;
+      letter-spacing: 0.04em;
+    }
+
+    nav a {
+      color: #111;
+      text-decoration: none;
+      padding: 0.15rem 0.4rem;
+      transition: background 0.1s;
+      white-space: nowrap;
+    }
+
+    nav a:hover {
+      background: #111;
+      color: #fafafa;
+    }
+
+    nav a.active {
+      background: #111;
+      color: #fafafa;
+    }
+
+    .nav-separator {
+      color: #999;
+      user-select: none;
+    }
+
+    .nav-bracket {
+      color: #999;
+      user-select: none;
+      font-size: 0.7rem;
+    }
+
+    /* ─── MAIN CONTENT ─── */
+
+    main {
+      flex: 1;
+      padding: 3rem 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .project-header {
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+
+    .project-title {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: normal;
+      letter-spacing: 0.1em;
+      text-transform: lowercase;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .project-subtitle {
+      font-size: 0.9rem;
+      color: #888;
+      letter-spacing: 0.15em;
+      text-transform: lowercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .demo-tag {
+      display: inline-block;
+      background: #111;
+      color: #fafafa;
+      padding: 0.3rem 1rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    @media (min-width: 768px) {
+      .content-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .content-card {
+      border: 1px solid #ddd;
+      padding: 2rem;
+      background: #fff;
+    }
+
+    .content-card h2 {
+      font-size: 1.2rem;
+      font-weight: normal;
+      letter-spacing: 0.08em;
+      margin-bottom: 1.5rem;
+      text-transform: lowercase;
+      color: #111;
+    }
+
+    .content-card p {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      color: #333;
+    }
+
+    .features-list {
+      list-style: none;
+      margin: 1.5rem 0;
+    }
+
+    .features-list li {
+      padding: 0.8rem 0;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .features-list li:last-child {
+      border-bottom: none;
+    }
+
+    .feature-icon {
+      font-size: 1.2rem;
+      min-width: 1.5rem;
+      text-align: center;
+    }
+
+    .demo-preview {
+      text-align: center;
+      padding: 2rem;
+      background: #f5f5f5;
+      border: 1px solid #ddd;
+      margin-bottom: 2rem;
+    }
+
+    .preview-emoji {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .preview-text {
+      font-size: 0.9rem;
+      color: #666;
+      font-style: italic;
+    }
+
+    .demo-cta {
+      text-align: center;
+      margin: 2rem 0;
+    }
+
+    .demo-button {
+      display: inline-block;
+      background: #111;
+      color: #fafafa;
+      padding: 0.8rem 2rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid #111;
+      transition: all 0.2s;
+    }
+
+    .demo-button:hover {
+      background: #fafafa;
+      color: #111;
+    }
+
+    .demo-note {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px dashed #ddd;
+      margin-top: 3rem;
+    }
+
+    .note-text {
+      font-size: 0.8rem;
+      color: #888;
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    /* ─── SLIDER PREVIEW ─── */
+
+    .slider-demo {
+      margin: 1.5rem 0;
+    }
+
+    .slider-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid #eee;
+      font-size: 0.8rem;
+    }
+
+    .slider-row:last-child {
+      border-bottom: none;
+    }
+
+    .slider-label {
+      color: #555;
+      min-width: 80px;
+    }
+
+    .slider-track {
+      flex: 1;
+      height: 2px;
+      background: #ddd;
+      margin: 0 1rem;
+      position: relative;
+    }
+
+    .slider-fill {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      background: #111;
+    }
+
+    .slider-val {
+      color: #111;
+      min-width: 50px;
+      text-align: right;
+    }
+
+    /* ─── SUBTLE GRID ─── */
+
+    .grid-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      background-image:
+        linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+
+    main, header, footer {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ─── FOOTER ─── */
+
+    footer {
+      border-top: 1px solid #ddd;
+      padding: 0.75rem 2rem;
+      font-size: 0.55rem;
+      color: #bbb;
+      letter-spacing: 0.1em;
+      text-align: right;
+      text-transform: lowercase;
+    }
+
+    /* ─── RESPONSIVE ─── */
+
+    @media (max-width: 640px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem 1.25rem;
+      }
+
+      nav {
+        font-size: 0.75rem;
+      }
+
+      main {
+        padding: 2rem 1.25rem;
+      }
+
+      .content-card {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="grid-bg"></div>
+
+  <header>
+    <a href="/" class="brand">paradime.technologies</a>
+    <nav>
+      <a href="/">landing</a>
+      <span class="nav-separator">/</span>
+      <a href="/flowers">flowers</a>
+      <span class="nav-separator">/</span>
+      <a href="/contact">contact</a>
+      <span class="nav-separator">/</span>
+      <a href="/about">about</a>
+      <span class="nav-separator">&nbsp;</span>
+      <span class="nav-bracket">:[</span>
+      <a href="/forward"> look forward</a>
+      <span class="nav-bracket">]</span>
+    </nav>
+  </header>
+
+  <main>
+    <div class="project-header">
+      <h1 class="project-title">smart.cookie</h1>
+      <p class="project-subtitle">Interactive Recipe Calculator</p>
+      <span class="demo-tag">Open Source</span>
+    </div>
+
+    <div class="content-grid">
+      <div class="content-card">
+        <h2>Tune Your Perfect Cookie</h2>
+        <p>smart.cookie turns cookie baking into a precision craft. Dial in texture, sweetness, and saltiness with sliders and watch the recipe recalculate in real time — every gram, every ratio, every substitution handled for you.</p>
+
+        <ul class="features-list">
+          <li>
+            <span class="feature-icon">🎚️</span>
+            <span><strong>Live Sliders</strong> — chewy → crispy, sweet, salty</span>
+          </li>
+          <li>
+            <span class="feature-icon">📐</span>
+            <span><strong>Dynamic Scaling</strong> — 6 to 48 cookies per batch</span>
+          </li>
+          <li>
+            <span class="feature-icon">🌱</span>
+            <span><strong>Dietary Modes</strong> — gluten-free, vegan, dairy-free, nut-free</span>
+          </li>
+          <li>
+            <span class="feature-icon">🔄</span>
+            <span><strong>Auto Substitutions</strong> — ingredient swaps computed instantly</span>
+          </li>
+          <li>
+            <span class="feature-icon">✅</span>
+            <span><strong>Ingredient Check</strong> — optional add-ins toggled on/off</span>
+          </li>
+          <li>
+            <span class="feature-icon">⚡</span>
+            <span><strong>Built with React + TypeScript + Vite</strong></span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="content-card">
+        <div class="demo-preview">
+          <span class="preview-emoji">🍪</span>
+          <p class="preview-text">Recipe updates as you move the sliders</p>
+        </div>
+
+        <h2>How It Works</h2>
+        <p>Adjust three taste axes and a batch size stepper. The calculation engine converts your preferences into precise gram weights, adjusts for dietary restrictions, and resolves ingredient substitutions automatically — no guesswork.</p>
+
+        <div class="slider-demo">
+          <div class="slider-row">
+            <span class="slider-label">texture</span>
+            <div class="slider-track"><div class="slider-fill" style="width: 30%"></div></div>
+            <span class="slider-val">thick & chewy</span>
+          </div>
+          <div class="slider-row">
+            <span class="slider-label">sweetness</span>
+            <div class="slider-track"><div class="slider-fill" style="width: 55%"></div></div>
+            <span class="slider-val">balanced</span>
+          </div>
+          <div class="slider-row">
+            <span class="slider-label">saltiness</span>
+            <div class="slider-track"><div class="slider-fill" style="width: 45%"></div></div>
+            <span class="slider-val">standard</span>
+          </div>
+        </div>
+
+        <div class="demo-cta">
+          <a href="https://github.com/josephg29/smartcookie" class="demo-button" target="_blank">
+            View on GitHub →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-note">
+      <p class="note-text">An open-source cookie recipe calculator. Tune texture, sweetness, and batch size with sliders and get a dynamically computed recipe. Part of the Paradime Technologies digital garden.</p>
+    </div>
+  </main>
+
+  <footer>
+    paradime.technologies — 2026
+  </footer>
+
+</body>
+</html>
